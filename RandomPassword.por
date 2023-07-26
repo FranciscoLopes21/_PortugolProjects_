@@ -9,7 +9,6 @@ programa {
     cadeia lowerChar = "abcdefghijklmnopqrstuvwxyz"
     cadeia upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     cadeia numberChar = "1234567890"
-    caracter charValor
     inteiro tamanho
     
     escreva("How many caracters do you want!!!\n")
