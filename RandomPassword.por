@@ -11,12 +11,14 @@ programa {
     cadeia upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     cadeia numberChar = "1234567890"
     cadeia symbolsChar = "!@#$%^&()"
+    cadeia characters = ""
     logico lowerBool = falso
     logico upperBool = falso
     logico numberBool = falso
     logico symbolsBool = falso
-    caracter charValor
     inteiro tamanho
+    inteiro valor_sorteado
+    cadeia password = ""
     
     escreva("How many caracters do you want!!!\n")
     escreva("          min:8 | max:20         \n")
@@ -26,6 +28,7 @@ programa {
         limpa()
         faca
 		    {
+          characters = ""
           limpa()
           se(lowerBool == falso e upperBool == falso e numberBool == falso e symbolsBool == falso){
               escreva("/////////////// MENU //////////////\n")
@@ -36,6 +39,8 @@ programa {
               escreva("//////  4- Symbols Char [ ]  //////\n")
               escreva("//////  5- Generate Password //////\n")
               escreva("///////////////////////////////////\n")
+              characters = ""
+
             }senao se (lowerBool == verdadeiro e upperBool == verdadeiro e numberBool == verdadeiro e symbolsBool == verdadeiro) {
               escreva("/////////////// MENU //////////////\n")
               escreva("///////////    Select   ///////////\n")
@@ -45,6 +50,8 @@ programa {
               escreva("//////  4- Symbols Char [X]  //////\n")
               escreva("//////  5- Generate Password //////\n")
               escreva("///////////////////////////////////\n")
+              characters = lowerChar + upperChar + numberChar + symbolsChar
+
             }senao se (lowerBool == verdadeiro e upperBool == falso e numberBool == falso e symbolsBool == falso) {
               escreva("/////////////// MENU //////////////\n")
               escreva("///////////    Select   ///////////\n")
@@ -54,6 +61,8 @@ programa {
               escreva("//////  4- Symbols Char [ ]  //////\n")
               escreva("//////  5- Generate Password //////\n")
               escreva("///////////////////////////////////\n")
+              characters = lowerChar 
+
             }
             senao se (lowerBool == verdadeiro e upperBool == verdadeiro e numberBool == falso e symbolsBool == falso) {
               escreva("/////////////// MENU //////////////\n")
@@ -64,6 +73,8 @@ programa {
               escreva("//////  4- Symbols Char [ ]  //////\n")
               escreva("//////  5- Generate Password //////\n")
               escreva("///////////////////////////////////\n")
+              characters = lowerChar + upperChar 
+
             }
             senao se (lowerBool == verdadeiro e upperBool == verdadeiro e numberBool == verdadeiro e symbolsBool == falso) {
               escreva("/////////////// MENU //////////////\n")
@@ -74,16 +85,8 @@ programa {
               escreva("//////  4- Symbols Char [ ]  //////\n")
               escreva("//////  5- Generate Password //////\n")
               escreva("///////////////////////////////////\n")
-            }
-            senao se (lowerBool == verdadeiro e upperBool == verdadeiro e numberBool == verdadeiro e symbolsBool == verdadeiro) {
-              escreva("/////////////// MENU //////////////\n")
-              escreva("///////////    Select   ///////////\n")
-              escreva("//////  1- Lower Char   [X]  //////\n")
-              escreva("//////  2- Upper Char   [X]  //////\n")
-              escreva("//////  3- Number Char  [X]  //////\n")
-              escreva("//////  4- Symbols Char [X]  //////\n")
-              escreva("//////  5- Generate Password //////\n")
-              escreva("///////////////////////////////////\n")
+              characters = lowerChar + upperChar + numberChar 
+
             }
             senao se (lowerBool == verdadeiro e upperBool == verdadeiro e numberBool == falso e symbolsBool == verdadeiro) {
               escreva("/////////////// MENU //////////////\n")
@@ -94,6 +97,8 @@ programa {
               escreva("//////  4- Symbols Char [X]  //////\n")
               escreva("//////  5- Generate Password //////\n")
               escreva("///////////////////////////////////\n")
+              characters = lowerChar  + symbolsChar
+
             }
             senao se (lowerBool == verdadeiro e upperBool == falso e numberBool == falso e symbolsBool == verdadeiro) {
               escreva("/////////////// MENU //////////////\n")
@@ -104,6 +109,8 @@ programa {
               escreva("//////  4- Symbols Char [X]  //////\n")
               escreva("//////  5- Generate Password //////\n")
               escreva("///////////////////////////////////\n")
+              characters = lowerChar  + symbolsChar
+
             }
             senao se (lowerBool == falso e upperBool == falso e numberBool == falso e symbolsBool == verdadeiro) {
               escreva("/////////////// MENU //////////////\n")
@@ -114,6 +121,8 @@ programa {
               escreva("//////  4- Symbols Char [X]  //////\n")
               escreva("//////  5- Generate Password //////\n")
               escreva("///////////////////////////////////\n")
+              characters =  symbolsChar
+
             }
             senao se (lowerBool == falso e upperBool == verdadeiro e numberBool == falso e symbolsBool == falso) {
               escreva("/////////////// MENU //////////////\n")
@@ -124,6 +133,8 @@ programa {
               escreva("//////  4- Symbols Char [ ]  //////\n")
               escreva("//////  5- Generate Password //////\n")
               escreva("///////////////////////////////////\n")
+              characters =  upperChar 
+
             }
             senao se (lowerBool == falso e upperBool == falso e numberBool == verdadeiro e symbolsBool == falso) {
               escreva("/////////////// MENU //////////////\n")
@@ -134,6 +145,68 @@ programa {
               escreva("//////  4- Symbols Char [ ]  //////\n")
               escreva("//////  5- Generate Password //////\n")
               escreva("///////////////////////////////////\n")
+              characters =  numberChar 
+
+            }
+            senao se (lowerBool == falso e upperBool == verdadeiro e numberBool == verdadeiro e symbolsBool == falso) {
+              escreva("/////////////// MENU //////////////\n")
+              escreva("///////////    Select   ///////////\n")
+              escreva("//////  1- Lower Char   [ ]  //////\n")
+              escreva("//////  2- Upper Char   [X]  //////\n")
+              escreva("//////  3- Number Char  [X]  //////\n")
+              escreva("//////  4- Symbols Char [ ]  //////\n")
+              escreva("//////  5- Generate Password //////\n")
+              escreva("///////////////////////////////////\n")
+              characters =  upperChar + numberChar 
+
+            }
+            senao se (lowerBool == falso e upperBool == verdadeiro e numberBool == verdadeiro e symbolsBool == verdadeiro) {
+              escreva("/////////////// MENU //////////////\n")
+              escreva("///////////    Select   ///////////\n")
+              escreva("//////  1- Lower Char   [ ]  //////\n")
+              escreva("//////  2- Upper Char   [X]  //////\n")
+              escreva("//////  3- Number Char  [X]  //////\n")
+              escreva("//////  4- Symbols Char [X]  //////\n")
+              escreva("//////  5- Generate Password //////\n")
+              escreva("///////////////////////////////////\n")
+              characters =  upperChar + numberChar + symbolsChar
+
+            }
+            senao se (lowerBool == falso e upperBool == falso e numberBool == verdadeiro e symbolsBool == verdadeiro) {
+              escreva("/////////////// MENU //////////////\n")
+              escreva("///////////    Select   ///////////\n")
+              escreva("//////  1- Lower Char   [ ]  //////\n")
+              escreva("//////  2- Upper Char   [ ]  //////\n")
+              escreva("//////  3- Number Char  [X]  //////\n")
+              escreva("//////  4- Symbols Char [X]  //////\n")
+              escreva("//////  5- Generate Password //////\n")
+              escreva("///////////////////////////////////\n")
+              characters =  numberChar + symbolsChar
+
+            }
+            senao se (lowerBool == falso e upperBool == verdadeiro e numberBool == falso e symbolsBool == verdadeiro) {
+              escreva("/////////////// MENU //////////////\n")
+              escreva("///////////    Select   ///////////\n")
+              escreva("//////  1- Lower Char   [ ]  //////\n")
+              escreva("//////  2- Upper Char   [X]  //////\n")
+              escreva("//////  3- Number Char  [ ]  //////\n")
+              escreva("//////  4- Symbols Char [X]  //////\n")
+              escreva("//////  5- Generate Password //////\n")
+              escreva("///////////////////////////////////\n")
+              characters =  upperChar  + symbolsChar
+
+            }
+            senao se (lowerBool == verdadeiro e upperBool == falso e numberBool == verdadeiro e symbolsBool == falso) {
+              escreva("/////////////// MENU //////////////\n")
+              escreva("///////////    Select   ///////////\n")
+              escreva("//////  1- Lower Char   [X]  //////\n")
+              escreva("//////  2- Upper Char   [ ]  //////\n")
+              escreva("//////  3- Number Char  [X]  //////\n")
+              escreva("//////  4- Symbols Char [ ]  //////\n")
+              escreva("//////  5- Generate Password //////\n")
+              escreva("///////////////////////////////////\n")
+              characters = lowerChar  + numberChar 
+
             }
 			    leia (option)
           
@@ -155,14 +228,20 @@ programa {
               se (symbolsBool == falso){symbolsBool = verdadeiro}
               senao se (symbolsBool == verdadeiro){symbolsBool = falso}
               pare
+            caso "": 
+              se (symbolsBool == falso){symbolsBool = verdadeiro}
+              senao se (symbolsBool == verdadeiro){symbolsBool = falso}
+              pare
             caso contrario: // Será executado para qualquer opção diferente de 1, 2 ou 3
               escreva ("Opção Inválida !")
           }
 		    }
 		    enquanto (option != 5)
         
-        tamanho = tx.numero_caracteres(numberChar)
+        tamanho = tx.numero_caracteres(characters)
+        valor_sorteado = u.sorteia(0, tamanho)
         escreva("\n" , tamanho)
+        escreva("\n" , valor_sorteado)
     }
     senao{
       limpa()
