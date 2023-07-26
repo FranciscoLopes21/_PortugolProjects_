@@ -4,6 +4,6 @@ In this repository are the projects that I use to learn Portugol
 
 ---
 
-*List of projects*
+*List of projects* :
 - [ ] Random Password
 
