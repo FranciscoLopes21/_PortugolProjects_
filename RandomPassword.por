@@ -6,18 +6,13 @@ programa {
   funcao inicio() {
 
     inteiro nCaracteres = 0
-    inteiro option = 0
-    cadeia lowerChar = "abcdefghijklmnopqrstuvwxyz"
-    cadeia upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    cadeia numberChar = "1234567890"
-    cadeia symbolsChar = "!@#$%^&()"
-    cadeia characters = ""
     logico lowerBool = falso
     logico upperBool = falso
     logico numberBool = falso
     logico symbolsBool = falso
     inteiro tamanho
     inteiro valor_sorteado
+    cadeia caractersSelected
     cadeia password = ""
     caracter digito
     
@@ -27,6 +22,39 @@ programa {
     leia(nCaracteres)
     se (nCaracteres >= 8 e nCaracteres <=20 ){
         limpa()
+        
+        caractersSelected = menu(lowerBool, upperBool, numberBool, symbolsBool)
+        
+        para (inteiro i = 0; i < nCaracteres ; i++)
+        {
+          tamanho = tx.numero_caracteres(caractersSelected)
+          valor_sorteado = u.sorteia(0, tamanho)
+          digito = tx.obter_caracter(caractersSelected, valor_sorteado)
+          password += digito			
+        }
+
+        
+        escreva("//////////////Password/////////////\n")
+        escreva("/////  ", password ,"   /////\n")
+        escreva("///////////////////////////////////\n")
+    }
+    senao{
+      limpa()
+      escreva("How many caracters do you want!!!\n")
+      escreva("          min:8 | max:20         \n")
+      leia(nCaracteres)
+    }
+  }
+
+  funcao menu( logico lowerBool, logico upperBool, logico numberBool, logico symbolsBool = falso ){
+
+    cadeia characters = ""
+    inteiro option = 0
+    cadeia lowerChar = "abcdefghijklmnopqrstuvwxyz"
+    cadeia upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    cadeia numberChar = "1234567890"
+    cadeia symbolsChar = "!@#$%^&()"
+
         faca
 		    {
           characters = ""
@@ -236,29 +264,8 @@ programa {
           }
 		    }
 		    enquanto (option != 5)
-        
-        para (inteiro i = 0; i < nCaracteres ; i++)
-        {
-          tamanho = tx.numero_caracteres(characters)
-          valor_sorteado = u.sorteia(0, tamanho)
-          digito = tx.obter_caracter(characters, valor_sorteado)
-          password += digito			
-        }
 
-        
-        escreva("//////////////Password/////////////\n")
-        escreva("/////  ", password ,"   /////\n")
-        escreva("///////////////////////////////////\n")
-        escreva("\n" , password)
-    }
-    senao{
-      limpa()
-      escreva("How many caracters do you want!!!\n")
-      escreva("          min:8 | max:20         \n")
-      leia(nCaracteres)
-    }
-  }
-  funcao menu(){
+        retorne characters
 
   }
 }
