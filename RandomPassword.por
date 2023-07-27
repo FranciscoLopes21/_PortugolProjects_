@@ -5,7 +5,7 @@ programa {
   
   funcao inicio() {
 
-    inteiro nCaracteres
+    inteiro nCaracteres = 0
     inteiro option = 0
     cadeia lowerChar = "abcdefghijklmnopqrstuvwxyz"
     cadeia upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -19,6 +19,7 @@ programa {
     inteiro tamanho
     inteiro valor_sorteado
     cadeia password = ""
+    caracter digito
     
     escreva("How many caracters do you want!!!\n")
     escreva("          min:8 | max:20         \n")
@@ -228,20 +229,27 @@ programa {
               se (symbolsBool == falso){symbolsBool = verdadeiro}
               senao se (symbolsBool == verdadeiro){symbolsBool = falso}
               pare
-            caso "": 
-              se (symbolsBool == falso){symbolsBool = verdadeiro}
-              senao se (symbolsBool == verdadeiro){symbolsBool = falso}
+            caso 5: 
               pare
             caso contrario: // Será executado para qualquer opção diferente de 1, 2 ou 3
-              escreva ("Opção Inválida !")
+              escreva ("Opção Inválida ! \n")
           }
 		    }
 		    enquanto (option != 5)
         
-        tamanho = tx.numero_caracteres(characters)
-        valor_sorteado = u.sorteia(0, tamanho)
-        escreva("\n" , tamanho)
-        escreva("\n" , valor_sorteado)
+        para (inteiro i = 0; i < nCaracteres ; i++)
+        {
+          tamanho = tx.numero_caracteres(characters)
+          valor_sorteado = u.sorteia(0, tamanho)
+          digito = tx.obter_caracter(characters, valor_sorteado)
+          password += digito			
+        }
+
+        
+        escreva("//////////////Password/////////////\n")
+        escreva("/////  ", password ,"   /////\n")
+        escreva("///////////////////////////////////\n")
+        escreva("\n" , password)
     }
     senao{
       limpa()
