@@ -244,11 +244,11 @@ programa {
             caso 1: 
               se (lowerBool == falso){lowerBool = verdadeiro}
               senao se (lowerBool == verdadeiro){lowerBool = falso}
-              pare   // Impede que as instruÃ§Ãµes do caso 2 sejam executadas
+              pare   // Impede que as instruções do caso 2 sejam executadas
             caso 2: 
               se (upperBool == falso){upperBool = verdadeiro}
               senao se (upperBool == verdadeiro){upperBool = falso}
-              pare   // Impede que as instruÃ§Ãµes do caso 2 sejam executadas
+              pare   // Impede que as instruções do caso 2 sejam executadas
             caso 3: 
               se (numberBool == falso){numberBool = verdadeiro}
               senao se (numberBool == verdadeiro){numberBool = falso}
@@ -259,8 +259,8 @@ programa {
               pare
             caso 5: 
               pare
-            caso contrario: // SerÃ¡ executado para qualquer opÃ§Ã£o diferente de 1, 2 ou 3
-              escreva ("OpÃ§Ã£o InvÃ¡lida ! \n")
+            caso contrario: // Será executado para qualquer opção diferente de 1, 2 ou 3
+              escreva ("Opção Inválida ! \n")
           }
 		    }
 		    enquanto (option != 5)
